@@ -88,29 +88,29 @@ deploy:
           ls -l $WERCKER_ROOT
 
     - bash-template:
-        cwd: kubernetes/deployment
+        cwd: $WERCKER_ROOT/kubernetes/deployment
 
     - script:
         name: Remove template files
-        cwd: kubernetes/deployment
+        cwd: $WERCKER_ROOT/kubernetes/deployment
         code: |
           rm *.template.yaml
 
     - script:
         name: debug
-        cwd: kubernetes/deployment
+        cwd: $WERCKER_ROOT/kubernetes/deployment
         code: |
           ls -l
 
     - script:
         name: echo tags
         code: |
-          cat kubernetes/deployment/deployment.yaml
+          cat $WERCKER_ROOT/kubernetes/deployment/deployment.yaml
           echo "Docker image and tag:"
           echo "${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
 
     - kubectl:
-        cwd: kubernetes/deployment
+        cwd: $WERCKER_ROOT/kubernetes/deployment
         server: ${KUBE_ENDPOINT}
         username: ${KUBE_USERNAME}
         password: ${KUBE_PASSWORD}

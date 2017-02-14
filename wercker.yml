@@ -79,9 +79,6 @@ deploy:
     - script:
         name: debug
         code: |
-          echo "XXX"
-          pwd
-          ls -l
           echo $WERCKER_OUTPUT_DIR
           ls -l $WERCKER_OUTPUT_DIR
           echo $WERCKER_ROOT

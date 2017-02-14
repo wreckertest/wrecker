@@ -37,6 +37,7 @@ build:
           # artifacts
           ls -l
           cp ${WERCKER_ROOT}/source "$WERCKER_OUTPUT_DIR"
+          cp -a ${WERCKER_ROOT}/kubernetes "$WERCKER_OUTPUT_DIR"
 
 docker-push:
 
@@ -57,6 +58,8 @@ docker-push:
           echo "DOCKER IMAGE:TAG"
           echo "quay.io/wercker/kubernetes-ci-cd:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
 
+    # Pushing to a quay.io repository
+    # For other docker repository refer to this doc: http://devcenter.wercker.com/docs/containers/pushing-containers
     - internal/docker-push:
         repository: quay.io/wercker/kubernetes-ci-cd
         registry: https://quay.io
@@ -66,7 +69,7 @@ docker-push:
         entrypoint: /opt/source
         port: 5000/tcp
 
-deploy-webapi:
+deploy:
 
   box:
     id: golang
@@ -85,31 +88,31 @@ deploy-webapi:
           ls -l $WERCKER_ROOT
 
     - bash-template:
-        cwd: webapi/deployment
+        cwd: kubernetes/deployment
 
     - script:
         name: Remove template files
-        cwd: webapi/deployment
+        cwd: kubernetes/deployment
         code: |
           rm *.template.yaml
 
     - script:
         name: debug
-        cwd: webapi/deployment
+        cwd: kubernetes/deployment
         code: |
           ls -l
 
     - script:
         name: echo tags
         code: |
-          cat webapi/deployment/deployment.yaml
+          cat kubernetes/deployment/deployment.yaml
           echo "Docker image and tag:"
           echo "${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
 
     - kubectl:
-        cwd: webapi/deployment
+        cwd: kubernetes/deployment
         server: ${KUBE_ENDPOINT}
         username: ${KUBE_USERNAME}
         password: ${KUBE_PASSWORD}
         insecure-skip-tls-verify: true
-        command: --namespace ${KUBE_NAMESPACE} apply -f deployment.yaml
+        command: --namespace ${KUBE_NAMESPACE} apply -f .

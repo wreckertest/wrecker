@@ -8,7 +8,10 @@ import (
 )
 
 func CityHandler(res http.ResponseWriter, req *http.Request) {
-	data, _ := json.Marshal("{randomdata.SillyName():randomdata.Title(randomdata.Male),randomdata.FullName(randomdata.Male)}")
+	var str1 string = randomdata.SillyName()
+	var str2 string = randomdata.Title(randomdata.Male)
+	var str3 string = randomdata.FullName(randomdata.Male)
+	data, _ := json.Marshal("{str1:str2,str3}")
 	res.Header().Set("Content-Type", "application/json; charset=utf-8")
 	res.Write(data)
 }

@@ -57,7 +57,7 @@ docker-push:
     - internal/docker-push:
         username: $CONTAINER_REGISTRY_USERNAME
         password: $API_USER_TOKEN
-        repository: $TENANCY_NAME/$REPO_NAME/kubernetes-ci-cd
+        repository: $TENANCY_NAME/$REPO_NAME/$APP_NAME
         registry: $PRIVATE_REGISTRY_PATH
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         entrypoint: /opt/source

@@ -18,6 +18,11 @@ build:
         name: debug
         code: |
           ls -l
+          
+    - script:
+        name: fetch-package
+        code: |
+          go get github.com/Pallinder/go-randomdata
 
     # Build the project
     - script:

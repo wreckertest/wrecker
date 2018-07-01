@@ -34,4 +34,4 @@ spec:
           initialDelaySeconds: 5
           timeoutSeconds: 5
       imagePullSecrets:
-      - name: ocirsecret
+      - name: ocir-secret

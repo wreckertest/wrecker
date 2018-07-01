@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -13,6 +14,7 @@ func CityHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
+	fmt.Println("hello world")
 	http.HandleFunc("/cities.json", CityHandler)
 	err := http.ListenAndServe(":5000", nil)
 	if err != nil {

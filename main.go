@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"github.com/Pallinder/go-randomdata"
 )
 
 func CityHandler(res http.ResponseWriter, req *http.Request) {

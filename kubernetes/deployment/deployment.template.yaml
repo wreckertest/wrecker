@@ -13,7 +13,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: quay.io/wercker/kubernetes-ci-cd:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
+      - image: iad.ocir.io/axisdemo/kubernetes-ci-cd:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         name: webapp
         imagePullPolicy: Always
         ports:

@@ -56,14 +56,14 @@ docker-push:
         name: echo docker tag
         code: |
           echo "DOCKER IMAGE:TAG"
-          echo "quay.io/wercker/kubernetes-ci-cd:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
+          echo "iad.ocir.io/axisdemo/kubernetes-ci-cd:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
 
     # Pushing to a quay.io repository
     # For other docker repository refer to this doc: http://devcenter.wercker.com/docs/containers/pushing-containers
     - internal/docker-push:
         username: $CONTAINER_REGISTRY_USERNAME
         password: $API_USER_TOKEN
-        repository: $TENANCY_NAME/$REPO_NAME/sampleflaskapp
+        repository: $TENANCY_NAME/$REPO_NAME/
         registry: $PRIVATE_REGISTRY_PATH
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         entrypoint: /opt/source

@@ -61,10 +61,10 @@ docker-push:
     # Pushing to a quay.io repository
     # For other docker repository refer to this doc: http://devcenter.wercker.com/docs/containers/pushing-containers
     - internal/docker-push:
-        repository: quay.io/wercker/kubernetes-ci-cd
-        registry: https://quay.io
-        username: $QUAY_USERNAME
-        password: $QUAY_PASSWORD
+        username: $CONTAINER_REGISTRY_USERNAME
+        password: $API_USER_TOKEN
+        repository: $TENANCY_NAME/$REPO_NAME/sampleflaskapp
+        registry: $PRIVATE_REGISTRY_PATH
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         entrypoint: /opt/source
         port: 5000/tcp
@@ -105,7 +105,12 @@ deploy:
           cat $WERCKER_ROOT/kubernetes/deployment/deployment.yaml
           echo "Docker image and tag:"
           echo "${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
-
+          
+    - script:
+        name: Export Kubernetes Config
+        code: |
+          export KUBECONFIG="$WERCKER_ROOT/kubernetes/kube.config"
+          
     - kubectl:
         cwd: $WERCKER_ROOT/kubernetes/deployment
         server: ${KUBE_ENDPOINT}

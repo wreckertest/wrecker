@@ -12,13 +12,15 @@ func CityHandler(res http.ResponseWriter, req *http.Request) {
 	var str1 string = randomdata.SillyName()
 	var str2 string = randomdata.Title(randomdata.Male)
 	var str3 string = randomdata.FullName(randomdata.Male)
-	var json_out string = "{" + str1 + ":" + str2 + "," + str3 + "}"
+	var str4 string = ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
+	var json_out string = "{" + str1 + ":" + str2 + "," + str3 + "," + str4 + "}"
 	data, _ := json.Marshal(json_out)
 	res.Header().Set("Content-Type", "application/json; charset=utf-8")
 	res.Write(data)
 	_=str1
 	_=str2
 	_=str3
+	_=str4
 	_ = json_out
 }
 

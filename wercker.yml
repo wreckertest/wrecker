@@ -110,4 +110,9 @@ deploy:
     - kubectl:
         cwd: $WERCKER_ROOT/kubernetes/deployment
         insecure-skip-tls-verify: true
+        command: delete service webapp
+     
+    - kubectl:
+        cwd: $WERCKER_ROOT/kubernetes/deployment
+        insecure-skip-tls-verify: true
         command: apply -f .

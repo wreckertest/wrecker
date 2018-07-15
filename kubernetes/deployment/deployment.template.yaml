@@ -12,6 +12,8 @@ spec:
         app: webapp
     spec:
       terminationGracePeriodSeconds: 90
+      imagePullSecrets:
+      - name: ocir-secret
       containers:
       - image: $PRIVATE_REGISTRY_PATH/$TENANCY_NAME/$REPO_NAME/$APP_NAME:latest
         name: webapp
@@ -33,5 +35,3 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 5
           timeoutSeconds: 5
-      imagePullSecrets:
-      - name: ocir-secret

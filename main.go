@@ -12,7 +12,8 @@ func CityHandler(res http.ResponseWriter, req *http.Request) {
 	var str1 string = randomdata.SillyName()
 	var str2 string = randomdata.Title(randomdata.Male)
 	var str3 string = randomdata.FullName(randomdata.Male)
-	var json_out string = "{" + str1 + ":" + str2 + "," + str3 +"}"
+	var minversion string 
+	var json_out string = "{" + "App Version : "+ minversion + "," + str1 + ":" + str2 + "," + str3 +"}"
 	data, _ := json.Marshal(json_out)
 	res.Header().Set("Content-Type", "application/json; charset=utf-8")
 	res.Write(data)

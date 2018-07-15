@@ -4,7 +4,7 @@ dev:
     - internal/watch:
         code: |
           go get github.com/Pallinder/go-randomdata
-          go build -ldflags "-X main.minversion=`date -u +.%Y%m%d.%H%M%S`" service.go
+          go build -ldflags "-X main.minversion=`date -u +.%Y%m%d.%H%M%S`" main.go
           ./source
         reload: true
 # Build definition
@@ -25,7 +25,7 @@ build:
         name: go build
         code: |
           go get github.com/Pallinder/go-randomdata
-          go build -ldflags "-X main.minversion=`date -u +.%Y%m%d.%H%M%S`" service.go
+          go build -ldflags "-X main.minversion=`date -u +.%Y%m%d.%H%M%S`" main.go
           go build ./...
 
     # Test the project

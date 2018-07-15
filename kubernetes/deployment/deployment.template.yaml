@@ -35,4 +35,3 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 5
           timeoutSeconds: 5
-      serviceAccountName: default

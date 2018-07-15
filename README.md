@@ -1,5 +1,5 @@
-Create a Kubernetes cluster with full CI/CD
-==============================================
+CI / CD on Oracle Managed Kubernetes Cluster - OKE & Wercker 
+============================================================
 
 This tutorial shows you how to create a production quality Kubernetes cluster
 on Oracle Cloud and then setup full CI/CD (continuous integration/continuous deployment)

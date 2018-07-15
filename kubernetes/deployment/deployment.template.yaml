@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
   name: webapp
 spec:
-  replicas: 1
+  replicas: 5
   template:
     metadata:
       labels:

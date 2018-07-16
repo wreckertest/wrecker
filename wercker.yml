@@ -13,7 +13,6 @@ dev:
     - pasonatquila/pretty-slack-notify:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-        username: $SLACK_USERNAME
         passed_message: yay :smile:
         
 # Build definition

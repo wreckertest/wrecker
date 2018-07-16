@@ -1,7 +1,6 @@
 box: golang
 dev:
   steps:
-    - akelmanson/rollbar-notify@1.0.2
     - internal/watch:
         code: |
           go get github.com/Pallinder/go-randomdata
@@ -49,10 +48,12 @@ build:
           ls -l
           cp ${WERCKER_ROOT}/source "$WERCKER_OUTPUT_DIR"
           cp -a ${WERCKER_ROOT}/kubernetes "$WERCKER_OUTPUT_DIR"
+  after-steps:
+    - install-packages:
+        packages: ruby
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-        username: $SLACK_USERNAME
 
 docker-push:
 
@@ -76,12 +77,13 @@ docker-push:
         registry: $PRIVATE_REGISTRY_PATH
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT},latest
         entrypoint: /opt/source
-        port: 5000/tcp
-        
+        port: 5000/tcp     
+  after-steps:
+    - install-packages:
+        packages: ruby
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-        username: $SLACK_USERNAME
 
 deploy:
 
@@ -131,8 +133,10 @@ deploy:
         cwd: $WERCKER_ROOT/kubernetes/deployment
         insecure-skip-tls-verify: true
         command: apply -f .
-        
+       
+    after-steps:
+    - install-packages:
+        packages: ruby
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-        username: $SLACK_USERNAME

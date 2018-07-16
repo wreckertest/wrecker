@@ -134,7 +134,7 @@ deploy:
         insecure-skip-tls-verify: true
         command: apply -f .
        
-    after-steps:
+  after-steps:
     - install-packages:
         packages: ruby
     - pasonatquila/pretty-slack-notify@0.3.6:

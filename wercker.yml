@@ -14,7 +14,6 @@ dev:
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-        passed_message: yay :smile:
         
 # Build definition
 build:

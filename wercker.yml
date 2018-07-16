@@ -7,6 +7,9 @@ dev:
           go build -ldflags "-X cityHandler.minversion=`date -u +.%Y%m%d.%H%M%S`" main.go
           ./source
         reload: true
+  after-steps:
+    - install-packages:
+        packages: ruby
     - pasonatquila/pretty-slack-notify:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL

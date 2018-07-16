@@ -1,6 +1,7 @@
 box: golang
 dev:
   steps:
+    - akelmanson/rollbar-notify@1.0.2
     - internal/watch:
         code: |
           go get github.com/Pallinder/go-randomdata
@@ -19,7 +20,7 @@ dev:
 build:
   # The steps that will be executed on build
   steps:
-
+    - akelmanson/rollbar-notify@1.0.2
     # golint step!
     - wercker/golint
 
@@ -60,7 +61,7 @@ docker-push:
     id: golang
 
   steps:
-
+    - akelmanson/rollbar-notify@1.0.2
     - script:
         name: copy binaries to /opt/app
         code: |

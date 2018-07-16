@@ -11,7 +11,7 @@ dev:
   after-steps:
     - install-packages:
         packages: ruby
-    - wantedly/pretty-slack-notify@0.3.5
+    - wantedly/pretty-slack-notify@0.3.5:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         passed_message: yay :smile:

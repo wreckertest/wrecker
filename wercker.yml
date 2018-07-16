@@ -11,6 +11,7 @@ dev:
         url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
+        token: $SLACK_TOKEN
         
 # Build definition
 build:

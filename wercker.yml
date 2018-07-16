@@ -11,7 +11,7 @@ dev:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
-        token: $SLACK_TOKEN
+        #token: $SLACK_TOKEN
         passed_message: yay :smile:
         
 # Build definition
@@ -81,7 +81,7 @@ docker-push:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
-        token: $SLACK_TOKEN
+        #token: $SLACK_TOKEN
 
 deploy:
 
@@ -136,4 +136,4 @@ deploy:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
-        token: $SLACK_TOKEN
+        #token: $SLACK_TOKEN

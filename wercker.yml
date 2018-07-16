@@ -10,7 +10,6 @@ dev:
     - slack-notifier:
         url: $SLACK_URL
         channel: $SLACK_CHANNEL
-        token: $SLACK_TOKEN
         
 # Build definition
 build:

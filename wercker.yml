@@ -10,8 +10,6 @@ dev:
   after-steps:
     - install-packages:
         packages: ruby
-    - akelmanson/rollbar-notify:
-      access-token: $ROLLBAR_ACCESS_TOKEN
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
@@ -55,9 +53,7 @@ build:
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-    - akelmanson/rollbar-notify:
-      access-token: $ROLLBAR_ACCESS_TOKEN
-
+        
 docker-push:
 
   box:
@@ -86,8 +82,6 @@ docker-push:
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-    - akelmanson/rollbar-notify:
-      access-token: $ROLLBAR_ACCESS_TOKEN
       
 deploy:
 
@@ -144,5 +138,3 @@ deploy:
     - pasonatquila/pretty-slack-notify@0.3.6:
         webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
-    - akelmanson/rollbar-notify:
-      access-token: $ROLLBAR_ACCESS_TOKEN        

@@ -75,6 +75,12 @@ docker-push:
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT},latest
         entrypoint: /opt/source
         port: 5000/tcp
+        
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USERNAME
+        token: $SLACK_TOKEN
 
 deploy:
 
@@ -124,3 +130,9 @@ deploy:
         cwd: $WERCKER_ROOT/kubernetes/deployment
         insecure-skip-tls-verify: true
         command: apply -f .
+        
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USERNAME
+        token: $SLACK_TOKEN

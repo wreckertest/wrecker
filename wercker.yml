@@ -7,11 +7,12 @@ dev:
           go build -ldflags "-X cityHandler.minversion=`date -u +.%Y%m%d.%H%M%S`" main.go
           ./source
         reload: true
-    - slack-notifier:
+    - wantedly/pretty-slack-notify:
         url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
         token: $SLACK_TOKEN
+        passed_message: yay :smile:
         
 # Build definition
 build:
@@ -76,7 +77,7 @@ docker-push:
         entrypoint: /opt/source
         port: 5000/tcp
         
-    - slack-notifier:
+    - wantedly/pretty-slack-notify:
         url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
@@ -131,7 +132,7 @@ deploy:
         insecure-skip-tls-verify: true
         command: apply -f .
         
-    - slack-notifier:
+    - wantedly/pretty-slack-notify:
         url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME

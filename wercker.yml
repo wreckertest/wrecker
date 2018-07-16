@@ -8,7 +8,7 @@ dev:
           ./source
         reload: true
     - wantedly/pretty-slack-notify:
-        url: $SLACK_URL
+        webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
         token: $SLACK_TOKEN
@@ -49,7 +49,7 @@ build:
           cp ${WERCKER_ROOT}/source "$WERCKER_OUTPUT_DIR"
           cp -a ${WERCKER_ROOT}/kubernetes "$WERCKER_OUTPUT_DIR"
     - slack-notifier:
-        url: $SLACK_URL
+        webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
 
@@ -78,7 +78,7 @@ docker-push:
         port: 5000/tcp
         
     - wantedly/pretty-slack-notify:
-        url: $SLACK_URL
+        webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
         token: $SLACK_TOKEN
@@ -133,7 +133,7 @@ deploy:
         command: apply -f .
         
     - wantedly/pretty-slack-notify:
-        url: $SLACK_URL
+        webhook_url: $SLACK_URL
         channel: $SLACK_CHANNEL
         username: $SLACK_USERNAME
         token: $SLACK_TOKEN

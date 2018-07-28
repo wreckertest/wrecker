@@ -120,14 +120,11 @@ deploy:
           echo "Docker image and tag:"
           echo "${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
           
-    - script:
-        name: Export Kubernetes Config
-        cwd: $WERCKER_ROOT
-        code: |
-          echo "KubeConfig"
-          wget $KUBECONFIG_LINK -O kube.config
-          export KUBECONFIG="${pwd}/kube.config"
-          echo $KUBECONFIG
+    - kubectl:
+        server: $KUBE_ENDPOINT
+        certificate-authority: $KUBE_ENDPOINT_CERT_AUTH
+        username: $KUBE_USER
+        token: $KUBE_USER_TOKEN
      
     - kubectl:
         cwd: $WERCKER_ROOT/kubernetes/deployment

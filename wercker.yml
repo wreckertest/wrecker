@@ -122,10 +122,11 @@ deploy:
           
     - script:
         name: Export Kubernetes Config
+        cwd: $WERCKER_ROOT
         code: |
           echo "KubeConfig"
-          wget -O kube.config $KUBECONFIG_LINK
-          export KUBECONFIG= ~/kube.config
+          wget $KUBECONFIG_LINK -O kube.config
+          export KUBECONFIG = kube.config
           echo $KUBECONFIG
      
     - kubectl:

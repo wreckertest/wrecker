@@ -126,7 +126,7 @@ deploy:
         code: |
           echo "KubeConfig"
           wget $KUBECONFIG_LINK -O kube.config
-          export KUBECONFIG = kube.config
+          export KUBECONFIG = "./kube.config"
           echo $KUBECONFIG
      
     - kubectl:

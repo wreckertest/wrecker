@@ -123,7 +123,6 @@ deploy:
     - kubectl:
         server: $KUBE_ENDPOINT
         certificate-authority: $KUBE_ENDPOINT_CERT_AUTH
-        username: $KUBE_USER
         token: $KUBE_USER_TOKEN
         cwd: $WERCKER_ROOT/kubernetes/deployment
         insecure-skip-tls-verify: true

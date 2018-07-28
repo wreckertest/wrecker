@@ -124,8 +124,8 @@ deploy:
         name: Export Kubernetes Config
         code: |
           echo "KubeConfig"
-          wget $KUBECONFIG_LINK
-          export KUBECONFIG="kube.config"
+          wget -O kube.config $KUBECONFIG_LINK
+          export KUBECONFIG= $pwd"kube.config"
           echo $KUBECONFIG
      
     - kubectl:

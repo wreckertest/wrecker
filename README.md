@@ -17,6 +17,7 @@ Repo Structure
 Wercker Custom Env Variables
 ============================
 | Name of Env Variable        | Explanation                           |
+| ----------------------------|---------------------------------------|
 | CONTAINER_REGISTRY_USERNAME | User name for Registry                |
 | API_USER_TOKEN              | Authentication for User               |
 | TENANCY_NAME                | Name of Tenancy where OKE is hosted   |

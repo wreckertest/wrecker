@@ -16,6 +16,8 @@ Repo Structure
 
 Wercker Custom Env Variables
 ============================
+
+
 | Name of Env Variable        | Explanation                           |
 | ----------------------------|---------------------------------------|
 | CONTAINER_REGISTRY_USERNAME | User name for Registry                |
@@ -24,6 +26,12 @@ Wercker Custom Env Variables
 | PRIVATE_REGISTRY_PATH       | Enpoint of Private Registry           | 
 | REPO_NAME                   | Name of  Repository within registry   |
 | APP_NAME                    | Name of Application                   |
+| SLACK_URL                   | Url of slack webhook for publication  |
+| SLACK_CHANNEL               | Channel ID to post notifications      | 
+| SLACK_USERNAME              | Slack User name for auth              |
+| SLACK_TOKEN                 | Slack Token for Auth                  | 
+| KUBE_ENDPOINT               | Cluster End Point - refr kubeconfig   |
+| KUBE_USER_TOKEN             | Token provided in Kubeconfig          |
 
 
 Feature Set 

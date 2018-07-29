@@ -14,9 +14,19 @@ Repo Structure
 2) Wercker.yml file contains the information for Build and deployment
 3) The main directory contains a go program that exposes a webservice on port 5000
 
+Wercker Custom Env Variables
+============================
+| Name of Env Variable        | Explanation                           |
+| CONTAINER_REGISTRY_USERNAME | User name for Registry                |
+| API_USER_TOKEN              | Authentication for User               |
+| TENANCY_NAME                | Name of Tenancy where OKE is hosted   |
+| PRIVATE_REGISTRY_PATH       | Enpoint of Private Registry           | 
+| REPO_NAME                   | Name of  Repository within registry   |
+| APP_NAME                    | Name of Application                   |
+
 
 Feature Set 
 ==================================
-Added Random Cities Generation while accessing webservice
-Removed Kubeconfig from repo and configured it as an Env Variable in Wercker
-Added Slack Chatbot Integration 
+* Added Random Cities Generation while accessing webservice.
+* Removed Kubeconfig from repo and configured it as an Env Variable in Wercker
+* Added Slack Chatbot Integration 

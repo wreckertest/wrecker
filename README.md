@@ -12,8 +12,8 @@ while Wercker and this Git repo powers the CI/CD pipeline.
 
 Getting started 
 ===============
-* Clone/ Fork Repo 
-* Refer article on Medium for detailed information - 
+* Clone/ Fork Repo. Please feel free to contact me for any questions. 
+* Refer article on Medium for detailed information - https://medium.com/jsonlovesyaml/ci-cd-simplified-with-wercker-kubernetes-on-oracle-cloud-infrastructure-a2332497d36f
 
 Repo Structure
 ===============

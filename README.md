@@ -8,6 +8,11 @@ into the Kubernetes cluster.
 This project is executed using Oracle Kubernetes Engine and Oracle Container Registry Service powering the infrastructure
 while Wercker and this Git repo powers the CI/CD pipeline. 
 
+Getting started 
+===============
+* Clone/ Fork Repo 
+* Refer article on Medium for detailed information - 
+
 Repo Structure
 ===============
 1) Kubernetes Directory Contains the deployment templates and the ingress controller
@@ -16,7 +21,10 @@ Repo Structure
 
 Wercker Custom Env Variables
 ============================
-
+* These values need to be changed in the wercker account where the workflow is configured. 
+* These variables are not pipeline specific but workflow specific and globally accessible across pipelines. 
+* The first three env variables are declared specific to Oracle Cloud Container Registry and Mangaed OKE Parallems. 
+* Please modify the placeholders for the env variables in wercker.yml and the corresponding Kubernetes templates and the env variables in your wercker account. 
 
 | Name of Env Variable        | Explanation                           |
 | ----------------------------|---------------------------------------|
@@ -32,7 +40,6 @@ Wercker Custom Env Variables
 | SLACK_TOKEN                 | Slack Token for Auth                  | 
 | KUBE_ENDPOINT               | Cluster End Point - refr kubeconfig   |
 | KUBE_USER_TOKEN             | Token provided in Kubeconfig          |
-
 
 Feature Set 
 ==================================
